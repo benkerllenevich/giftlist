@@ -4,7 +4,6 @@ namespace App\Livewire;
 
 use App\Models\Lists;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -29,6 +28,7 @@ class CreateListForm extends Component
     public function createList(Request $request)
     {
         $this->resetErrorBag();
+        $this->name = trim($this->name);
         $this->validate();
 
         // check if list with name exists

@@ -9,5 +9,7 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/', [ListController::class, 'index'])->name('home');
+
     Route::get('/list/{id}', [ListController::class, 'show'])->name('list');
+    Route::get('/list/{id}/settings', [ListController::class, 'show'])->name('list.settings');
 });

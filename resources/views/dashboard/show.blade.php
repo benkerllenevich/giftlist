@@ -1,7 +1,3 @@
-<x-app-layout>
-    <x-slot name="listName">
-        {{ $list->name }}
-    </x-slot>
-
-    {{ $list->id }}
-</x-app-layout>
+<x-sidebar-layout :list="$list">
+    hi
+</x-sidebar-layout>

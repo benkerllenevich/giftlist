@@ -1,14 +1,7 @@
 <x-app-layout>
-    {{--
-    <x-slot name="project">
-        {{ __('Home') }}
-    </x-slot>
-    --}}
-
     <div class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-6 gap-8 items-center justify-center">
         @foreach($lists as $list)
-            <a href={{ route('list', ['id' => $list->id]) }}
-                class="bg-white border border-gray-200 w-48 h-56 rounded-lg flex flex-col gap-2.5 items-center justify-center hover:bg-gray-50 hover:border-gray-300 hover:text-gray-500 transition ease-in-out duration-150">
+            <a href={{ route('list', ['id' => $list->id]) }} class="bg-white border border-gray-200 w-48 h-56 rounded-lg flex flex-col gap-2.5 items-center justify-center hover:bg-gray-50 hover:border-gray-300 hover:text-gray-500 transition ease-in-out duration-150">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width=".5"
                      stroke="currentColor" class="size-20 text-gray-400">
                     <path stroke-linecap="round" stroke-linejoin="round"
