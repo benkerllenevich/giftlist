@@ -40,16 +40,16 @@
                                 </svg>
                             </x-nav-link>
 
-                            @if (isset($project))
+                            @if (isset($listName))
                                 <div class="flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                                     </svg>
                                 </div>
 
-                                <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
+                                <x-nav-link href="{{ route('home') }}" active="true">
                                     <h2 class="text-lg">
-                                        {{ $project }}
+                                        {{ $listName }}
                                     </h2>
                                 </x-nav-link>
                             @endif

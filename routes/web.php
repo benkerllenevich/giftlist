@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware([
@@ -7,5 +8,6 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/', [\App\Http\Controllers\ListController::class, 'index'])->name('home');
+    Route::get('/', [ListController::class, 'index'])->name('home');
+    Route::get('/list/{id}', [ListController::class, 'show'])->name('list');
 });
