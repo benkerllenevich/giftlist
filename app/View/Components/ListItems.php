@@ -6,7 +6,7 @@ use App\Models\Lists;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class DashboardList extends Component
+class ListItems extends Component
 {
     public Lists $list;
 
@@ -15,6 +15,6 @@ class DashboardList extends Component
      */
     public function render(): View
     {
-        return view('dashboard.show');
+        return view('list.items');
     }
 }

@@ -5,7 +5,7 @@ namespace App\View\Components;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class DashboardIndex extends Component
+class Dashboard extends Component
 {
     public $lists = [];
 
@@ -14,6 +14,6 @@ class DashboardIndex extends Component
      */
     public function render(): View
     {
-        return view('dashboard.index');
+        return view('dashboard.show');
     }
 }

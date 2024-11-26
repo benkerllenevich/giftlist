@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ListController;
 use Illuminate\Support\Facades\Route;
 
@@ -8,8 +9,8 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/', [ListController::class, 'index'])->name('home');
+    Route::get('/', [DashboardController::class, 'lists'])->name('home');
 
-    Route::get('/list/{id}', [ListController::class, 'show'])->name('list');
-    Route::get('/list/{id}/settings', [ListController::class, 'show'])->name('list.settings');
+    Route::get('/list/{id}', [ListController::class, 'items'])->name('list.items');
+    Route::get('/list/{id}/settings', [ListController::class, 'settings'])->name('list.settings');
 });
