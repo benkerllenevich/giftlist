@@ -10,6 +10,10 @@ class Lists extends Model
 {
     use HasUlids;
 
+    public static array $validationRules = [
+        'name' => 'required|min:5|max:100',
+    ];
+
     protected $fillable = [
         'name',
     ];

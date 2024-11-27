@@ -5,7 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }} @if (isset($listName)) | {{ $listName }} @endif</title>
+        @if (!isset($header))
+            <title>GiftList</title>
+        @endif
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -40,7 +42,7 @@
                                 </svg>
                             </x-nav-link>
 
-                            @if (isset($listName))
+                            @if (isset($header))
                                 <div class="flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
@@ -49,7 +51,7 @@
 
                                 <x-nav-link href="{{ route('home') }}" active="true">
                                     <h2 class="text-lg">
-                                        {{ $listName }}
+                                        {{ $header }}
                                     </h2>
                                 </x-nav-link>
                             @endif

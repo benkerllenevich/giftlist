@@ -14,6 +14,6 @@
             </a>
         @endforeach
 
-        @livewire("create-list-form")
+        @livewire("dashboard.create-list-form")
     </div>
 </x-app-layout>

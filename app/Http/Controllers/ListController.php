@@ -11,6 +11,9 @@ class ListController extends Controller
     public function items(Request $request, String $id): View
     {
         $list = $request->user()->lists()->where('id', $id)->first(['id', 'name']);
+        if (!$list) {
+            abort(404);
+        }
 
         return view('list.items', [
             'list' => $list
@@ -20,8 +23,11 @@ class ListController extends Controller
     public function settings(Request $request, String $id): View
     {
         $list = $request->user()->lists()->where('id', $id)->first(['id', 'name']);
+        if (!$list) {
+            abort(404);
+        }
 
-        return view('list.items', [
+        return view('list.settings', [
             'list' => $list
         ]);
     }

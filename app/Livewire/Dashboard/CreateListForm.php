@@ -1,18 +1,16 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Dashboard;
 
 use App\Models\Lists;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
-use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 class CreateListForm extends Component
 {
     public bool $creatingList = false;
 
-    #[Validate('required|min:5|max:100')]
     public string $name = '';
 
     public function startCreatingList()
@@ -29,7 +27,7 @@ class CreateListForm extends Component
     {
         $this->resetErrorBag();
         $this->name = trim($this->name);
-        $this->validate();
+        $this->validate(Lists::$validationRules);
 
         // check if list with name exists
         if (Lists::whereBelongsTo($request->user())->where('name', $this->name)->exists()) {
@@ -42,7 +40,7 @@ class CreateListForm extends Component
         $list->name = $this->name;
         $request->user()->lists()->save($list);
 
-        $this->redirectRoute('list', ['id' => $list->id]);
+        $this->redirectRoute('list.items', ['id' => $list->id]);
     }
 
     public function render()

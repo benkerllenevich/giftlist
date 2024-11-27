@@ -1,3 +1,3 @@
 <x-sidebar-layout :list="$list">
-    hi
+    items
 </x-sidebar-layout>

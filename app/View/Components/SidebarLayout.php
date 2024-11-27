@@ -5,6 +5,7 @@ namespace App\View\Components;
 use App\Models\Lists;
 use Illuminate\View\Component;
 use Illuminate\View\View;
+use Livewire\Attributes\On;
 
 class SidebarLayout extends Component
 {
