@@ -23,7 +23,7 @@ class ListController extends Controller
 
     public function settings(Request $request, String $id): View
     {
-        $list = $request->user()->lists()->where('id', $id)->first(['id', 'name']);
+        $list = $request->user()->lists()->where('id', $id)->first(['id', 'name', 'visibility']);
         if ($request->user()->cannot('view', $list)) {
             abort(404);
         }

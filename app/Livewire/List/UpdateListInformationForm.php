@@ -2,6 +2,7 @@
 
 namespace App\Livewire\List;
 
+use App\Enums\ListVisibility;
 use App\Models\Lists;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -16,9 +17,11 @@ class UpdateListInformationForm extends Component
     public Lists $list;
 
     public String $name;
+    public ListVisibility $visibility;
 
     public function mount() {
         $this->name = $this->list->name;
+        $this->visibility = $this->list->visibility;
     }
 
     public function updateListInformation(Request $request) {
@@ -34,6 +37,7 @@ class UpdateListInformationForm extends Component
         }
 
         $this->list->name = $this->name;
+        $this->list->visibility = $this->visibility;
         $this->list->save();
 
         $this->dispatch('list-info-saved', name: $this->name);

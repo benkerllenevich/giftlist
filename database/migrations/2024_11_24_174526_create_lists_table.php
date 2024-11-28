@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignUlid('user_id')->index()->constrained('users')->onDelete('cascade');
 
             $table->string('name');
+            $table->enum('visibility', ['public', 'invite-only', 'private'])->default('private');
 
             $table->timestamps();
         });

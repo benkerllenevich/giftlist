@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Dashboard;
 
+use App\Enums\ListVisibility;
 use App\Models\Lists;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
@@ -38,6 +39,8 @@ class CreateListForm extends Component
 
         $list = new Lists();
         $list->name = $this->name;
+        $list->visibility = ListVisibility::InviteOnly;
+
         $request->user()->lists()->save($list);
 
         $this->redirectRoute('list.items', ['id' => $list->id]);
