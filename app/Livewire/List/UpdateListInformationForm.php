@@ -25,7 +25,7 @@ class UpdateListInformationForm extends Component
         $this->name = trim($this->name);
         $this->validate(Lists::$validationRules);
 
-        if (Lists::whereBelongsTo($request->user())->where('name', $this->name)->exists()) {
+        if (Lists::whereBelongsTo($request->user())->where('name', $this->name)->exists() && $this->name !== $this->list->name) {
             throw ValidationException::withMessages([
                 'name' => 'A list with this name already exists.'
             ]);
@@ -39,6 +39,6 @@ class UpdateListInformationForm extends Component
 
     public function render()
     {
-        return view('list.update-list-information-form');
+        return view('list.settings.update-list-information-form');
     }
 }
