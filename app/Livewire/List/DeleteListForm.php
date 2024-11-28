@@ -3,6 +3,7 @@
 namespace App\Livewire\List;
 
 use App\Models\Lists;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Locked;
 use Livewire\Component;
@@ -25,6 +26,7 @@ class DeleteListForm extends Component
 
     public function deleteList()
     {
+        Gate::authorize('delete', $this->list);
         $this->resetErrorBag();
 
         if (!$this->list->name === $this->listName) {

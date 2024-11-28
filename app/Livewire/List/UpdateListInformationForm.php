@@ -4,6 +4,7 @@ namespace App\Livewire\List;
 
 use App\Models\Lists;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Locked;
 use Livewire\Component;
@@ -21,6 +22,7 @@ class UpdateListInformationForm extends Component
     }
 
     public function updateListInformation(Request $request) {
+        Gate::authorize('update', $this->list);
         $this->resetErrorBag();
         $this->name = trim($this->name);
         $this->validate(Lists::$validationRules);
