@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('lists', function (Blueprint $table) {
             $table->ulid('id')->primary();
-            $table->foreignUlid('user_id')->index()->cascadeOnDelete();
+            $table->foreignUlid('user_id')->index()->constrained('users')->onDelete('cascade');
 
             $table->string('name');
 
