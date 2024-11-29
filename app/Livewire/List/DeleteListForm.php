@@ -26,7 +26,7 @@ class DeleteListForm extends Component
 
     public function deleteList()
     {
-        Gate::authorize('delete', $this->list);
+        Gate::authorize('manage', $this->list);
         $this->resetErrorBag();
 
         if (!$this->list->name === $this->listName) {

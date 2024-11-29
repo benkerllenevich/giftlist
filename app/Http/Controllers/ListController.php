@@ -12,7 +12,7 @@ class ListController extends Controller
     public function items(Request $request, String $id): View
     {
         $list = $request->user()->lists()->where('id', $id)->first(['id', 'name']);
-        if ($request->user()->cannot('view', $list)) {
+        if ($request->user()->cannot('manage', $list)) {
             abort(404);
         }
 
@@ -23,8 +23,8 @@ class ListController extends Controller
 
     public function settings(Request $request, String $id): View
     {
-        $list = $request->user()->lists()->where('id', $id)->first(['id', 'name', 'visibility']);
-        if ($request->user()->cannot('view', $list)) {
+        $list = $request->user()->lists()->where('id', $id)->first(['id', 'name', 'visibility', 'has_categories']);
+        if ($request->user()->cannot('manage', $list)) {
             abort(404);
         }
 

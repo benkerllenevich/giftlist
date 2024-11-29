@@ -19,13 +19,15 @@ class UpdateListInformationForm extends Component
     public String $name;
     public ListVisibility $visibility;
 
-    public function mount() {
+    public function mount()
+    {
         $this->name = $this->list->name;
         $this->visibility = $this->list->visibility;
     }
 
-    public function updateListInformation(Request $request) {
-        Gate::authorize('update', $this->list);
+    public function updateListInformation(Request $request)
+    {
+        Gate::authorize('manage', $this->list);
         $this->resetErrorBag();
         $this->name = trim($this->name);
         $this->validate(Lists::$validationRules);
