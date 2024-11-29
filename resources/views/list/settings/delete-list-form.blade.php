@@ -27,14 +27,15 @@
             <x-slot name="content">
                 {{ __('Are you sure you want to delete your account? Once your list is deleted, all of its resources and data will be permanently deleted. Please enter this list\'s name to confirm you would like to permanently delete this list.') }}
 
-                <div class="mt-4" x-data="{}" x-on:confirming-delete-list.window="setTimeout(() => $refs.listName.focus(), 250)">
+                <div class="mt-4" x-data="{}"
+                     x-on:confirming-delete-list.window="setTimeout(() => $refs.listName.focus(), 250)">
                     <x-input type="text" class="mt-1 block w-3/4"
-                                placeholder="{{ $list->name }}"
-                                x-ref="listName"
-                                wire:model="listName"
-                                wire:keydown.enter="deleteList" />
+                             placeholder="{{ $list->name }}"
+                             x-ref="listName"
+                             wire:model="listName"
+                             wire:keydown.enter="deleteList"/>
 
-                    <x-input-error for="listName" class="mt-2" />
+                    <x-input-error for="listName" class="mt-2"/>
                 </div>
             </x-slot>
 

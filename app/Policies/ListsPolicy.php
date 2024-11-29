@@ -5,7 +5,6 @@ namespace App\Policies;
 use App\Enums\ListVisibility;
 use App\Models\Lists;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 
 class ListsPolicy
 {

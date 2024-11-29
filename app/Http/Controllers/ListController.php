@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Lists;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\View\View;
 
 class ListController extends Controller
 {
-    public function items(Request $request, String $id): View
+    public function items(Request $request, string $id): View
     {
         $list = $request->user()->lists()->where('id', $id)->first(['id', 'name']);
         if ($request->user()->cannot('manage', $list)) {
@@ -21,7 +19,7 @@ class ListController extends Controller
         ]);
     }
 
-    public function settings(Request $request, String $id): View
+    public function settings(Request $request, string $id): View
     {
         $list = $request->user()->lists()->where('id', $id)->first(['id', 'name', 'visibility', 'has_categories']);
         if ($request->user()->cannot('manage', $list)) {

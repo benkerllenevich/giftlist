@@ -9,14 +9,13 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Locked;
 use Livewire\Component;
-use function Pest\Laravel\get;
 
 class UpdateListInformationForm extends Component
 {
     #[Locked]
     public Lists $list;
 
-    public String $name;
+    public string $name;
     public ListVisibility $visibility;
 
     public function mount()

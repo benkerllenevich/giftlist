@@ -9,18 +9,19 @@ use Livewire\Component;
 class ListName extends Component
 {
     #[Locked]
-    public String $defaultName;
+    public string $defaultName;
 
-    public String $name;
+    public string $name;
 
-    public function mount(String $defaultName)
+    public function mount(string $defaultName)
     {
         $this->defaultName = $defaultName;
         $this->name = $defaultName;
     }
 
     #[On('list-info-saved')]
-    public function updateName(string $name) {
+    public function updateName(string $name)
+    {
         $this->name = $name;
     }
 

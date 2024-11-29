@@ -9,13 +9,13 @@
 
     <x-slot name="form">
         <div class="col-span-6 sm:col-span-4">
-            <x-label for="name" value="{{ __('Name') }}" />
-            <x-input id="name" type="text" class="mt-1 block w-full" wire:model="name" required />
-            <x-input-error for="name" class="mt-2" />
+            <x-label for="name" value="{{ __('Name') }}"/>
+            <x-input id="name" type="text" class="mt-1 block w-full" wire:model="name" required/>
+            <x-input-error for="name" class="mt-2"/>
         </div>
 
         <div class="col-span-6 sm:col-span-4">
-            <x-label for="visibility" value="{{ __('Visibility') }}" />
+            <x-label for="visibility" value="{{ __('Visibility') }}"/>
             <x-select id="visibility" class="mt-1 block w-full" wire:model="visibility">
                 @foreach(\App\Enums\ListVisibility::cases() as $status)
                     <option value="{{ $status->value }}" {!! $visibility == $status ? "selected" : "" !!}>

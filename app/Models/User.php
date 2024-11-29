@@ -55,6 +55,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'profile_photo_url',
     ];
 
+    public function lists(): HasMany
+    {
+        return $this->hasMany(Lists::class);
+    }
+
     /**
      * Get the attributes that should be cast.
      *
@@ -66,10 +71,5 @@ class User extends Authenticatable implements MustVerifyEmail
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
-    }
-
-    public function lists(): HasMany
-    {
-        return $this->hasMany(Lists::class);
     }
 }

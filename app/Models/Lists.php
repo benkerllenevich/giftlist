@@ -20,13 +20,6 @@ class Lists extends Model
         'name',
     ];
 
-    protected function casts(): array
-    {
-        return [
-            'visibility' => ListVisibility::class,
-        ];
-    }
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -40,5 +33,12 @@ class Lists extends Model
     public function categories(): HasMany
     {
         return $this->hasMany(Category::class);
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'visibility' => ListVisibility::class,
+        ];
     }
 }
