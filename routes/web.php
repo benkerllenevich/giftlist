@@ -12,6 +12,5 @@ Route::middleware([
     Route::get('/', [DashboardController::class, 'lists'])->name('home');
 
     Route::get('/list/{id}', [ListController::class, 'items'])->name('list.items');
-    Route::get('/list/{id}/categories', [ListController::class, 'categories'])->name('list.categories');
     Route::get('/list/{id}/settings', [ListController::class, 'settings'])->name('list.settings');
 });

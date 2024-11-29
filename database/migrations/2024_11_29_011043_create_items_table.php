@@ -12,8 +12,8 @@ return new class extends Migration {
     {
         Schema::create('items', function (Blueprint $table) {
             $table->ulid('id')->primary();
-            $table->foreignUlid('list_id')->index()->constrained('lists')->cascadeOnDelete();
-            $table->foreignUlid('category_id')->index()->constrained('categories')->nullOnDelete();
+            $table->foreignUlid('lists_id')->index()->constrained('lists')->cascadeOnDelete();
+            $table->foreignUlid('category_id')->index()->nullable()->constrained('categories')->nullOnDelete();
 
             $table->string('name');
             $table->string('url')->nullable();
@@ -24,7 +24,7 @@ return new class extends Migration {
 
         Schema::create('categories', function (Blueprint $table) {
             $table->ulid('id')->primary();
-            $table->foreignUlid('list_id')->index()->constrained('lists')->onDelete('cascade');
+            $table->foreignUlid('lists_id')->index()->constrained('lists')->onDelete('cascade');
 
             $table->string('name');
 
