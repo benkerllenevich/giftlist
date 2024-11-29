@@ -15,18 +15,7 @@
             </a>
         </div>
         <div class="w-full flex flex-col lg:flex-row gap-12">
-            <div
-                class="h-min overflow-hidden lg:max-w-xs w-full bg-white border border-gray-200 rounded-md flex flex-col divide-solid divide-y divide-gray-100">
-                <x-sidebar-nav-button :href="route('list.items', ['id' => $list->id])"
-                                      :active="request()->routeIs('list.items')">
-                    Items
-                </x-sidebar-nav-button>
-
-                <x-sidebar-nav-button :href="route('list.settings', ['id' => $list->id])"
-                                      :active="request()->routeIs('list.settings')">
-                    Settings
-                </x-sidebar-nav-button>
-            </div>
+            <livewire:list.list-sidebar-items :list="$list" />
 
             <div>
                 {{ $slot }}

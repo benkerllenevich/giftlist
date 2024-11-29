@@ -15,6 +15,10 @@ return new class extends Migration {
             $table->foreignUlid('list_id')->index()->constrained('lists')->cascadeOnDelete();
             $table->foreignUlid('category_id')->index()->constrained('categories')->nullOnDelete();
 
+            $table->string('name');
+            $table->string('url')->nullable();
+            $table->text('description');
+
             $table->timestamps();
         });
 
