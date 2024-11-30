@@ -7,7 +7,7 @@ use Livewire\Attributes\Locked;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
-class CategorySections extends Component
+class Categories extends Component
 {
     #[Locked]
     public Lists $list;
@@ -29,6 +29,6 @@ class CategorySections extends Component
 
     public function render()
     {
-        return view('list.items.category.category-sections');
+        return view('list.items.category.categories');
     }
 }

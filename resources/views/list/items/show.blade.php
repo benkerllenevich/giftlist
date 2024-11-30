@@ -10,7 +10,7 @@
 
         <div>
             @if ($list->has_categories)
-                <livewire:list.category.category-sections :list="$list">
+                <livewire:list.category.categories :list="$list">
             @else
                 no categories
             @endif

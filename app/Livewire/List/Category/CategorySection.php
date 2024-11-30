@@ -9,7 +9,7 @@ use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Locked;
 use Livewire\Component;
 
-class CategoryItems extends Component
+class CategorySection extends Component
 {
     #[Locked]
     public Category $category;
@@ -82,6 +82,6 @@ class CategoryItems extends Component
 
     public function render()
     {
-        return view('list.items.category.category-items');
+        return view('list.items.category.category-section');
     }
 }

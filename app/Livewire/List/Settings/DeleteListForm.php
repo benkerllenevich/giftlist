@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\List;
+namespace App\Livewire\List\Settings;
 
 use App\Models\Lists;
 use Illuminate\Support\Facades\Gate;
