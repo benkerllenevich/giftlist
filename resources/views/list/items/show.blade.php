@@ -5,9 +5,7 @@
                 <livewire:list.category.new-category-form :list="$list" />
             @endif
 
-            <x-button>
-                New Item
-            </x-button>
+            <livewire:list.item.new-item-form :list="$list" />
         </div>
 
         <div>

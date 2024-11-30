@@ -10,6 +10,12 @@ class Item extends Model
 {
     use HasUlids;
 
+    public static array $validationRules = [
+        'name' => 'required|string|max:255',
+        'url' => 'string|url|max:255',
+        'description' => 'string'
+    ];
+
     public function list(): BelongsTo
     {
         return $this->belongsTo(Lists::class);
