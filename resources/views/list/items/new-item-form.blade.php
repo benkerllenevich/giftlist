@@ -27,6 +27,8 @@
                                 {{ $category->name }}
                             </option>
                         @endforeach
+
+                        <option value="" selected>Uncategorized</option>
                     </x-select>
                 </div>
             @endif
@@ -42,9 +44,10 @@
 
             <div class="mt-4">
                 <x-label for="description">Description</x-label>
-                <textarea id="description" class="resize-y min-h-20 mt-1 block w-3/4 border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 rounded-md"
-                         wire:model="description"
-                         wire:keydown.enter="createItem">
+                <textarea id="description"
+                          class="resize-y min-h-20 mt-1 block w-3/4 border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 rounded-md"
+                          wire:model="description"
+                          wire:keydown.enter="createItem">
                 </textarea>
                 <x-input-error for="description" class="mt-2"/>
             </div>

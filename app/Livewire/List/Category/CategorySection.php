@@ -3,16 +3,21 @@
 namespace App\Livewire\List\Category;
 
 use App\Models\Category;
+use App\Models\Lists;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Locked;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class CategorySection extends Component
 {
     #[Locked]
-    public Category $category;
+    public Lists $list;
+
+    #[Locked]
+    public ?Category $category = null;
 
     public bool $settingsOpen = false;
     public $settingsState = [];
@@ -20,6 +25,8 @@ class CategorySection extends Component
 
     public bool $deletingOpen = false;
     public $deletingState = [];
+
+    public bool $expanded = false;
 
 
     public function openSettings()
@@ -78,6 +85,29 @@ class CategorySection extends Component
 
         $this->category->delete();
         $this->dispatch('deleted-category');
+    }
+
+    public function toggleExpand()
+    {
+        if ($this->expanded) {
+            $this->expanded = false;
+        } else {
+            if (is_null($this->category)) {
+                $this->dispatch('close-all', id: '');
+            } else {
+                $this->dispatch('close-all', id: $this->category->id);
+            }
+            $this->expanded = true;
+        }
+    }
+
+    #[On('close-all')]
+    public function closeAll(string $id)
+    {
+        $categoryId = is_null($this->category) ? '' : $this->category->id;
+        if ($categoryId !== $id) {
+            $this->expanded = false;
+        }
     }
 
     public function render()

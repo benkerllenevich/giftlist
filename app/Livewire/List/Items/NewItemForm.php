@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Livewire\List\Item;
+namespace App\Livewire\List\Items;
 
-use App\Models\Category;
 use App\Models\Item;
 use App\Models\Lists;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Attributes\Locked;
 use Livewire\Component;
+use function PHPUnit\Framework\isNull;
 
 class NewItemForm extends Component
 {
@@ -47,12 +46,17 @@ class NewItemForm extends Component
         $item->url = $this->url;
         $item->description = $this->description;
 
+        if ($this->list->has_categories && $this->categoryId != '') {
+            $item->category_id = $this->categoryId;
+        }
+        /*
         if ($this->list->has_categories) {
             $category = $this->list->categories()->where('id', $this->categoryId)->first();
             $category->items()->save($item);
         } else {
-            $this->list->items()->save($item);
-        }
+
+        } */
+        $this->list->items()->save($item);
 
         $this->creatingItem = false;
         $this->dispatch('created-item');
