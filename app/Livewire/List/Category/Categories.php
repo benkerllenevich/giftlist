@@ -14,7 +14,7 @@ class Categories extends Component
     public $categories;
     public bool $hasUncategorized = false;
 
-    public function mount()
+    public function loadCategories()
     {
         $this->categories = $this->list->categories()->get(['id', 'name']);
         if ($this->list->items()->where('category_id', null)->count() > 0) {
@@ -22,12 +22,18 @@ class Categories extends Component
         }
     }
 
+    public function mount()
+    {
+        $this->loadCategories();
+    }
+
     #[On('created-category')]
     #[On('updated-category')]
     #[On('deleted-category')]
+    #[On('created-item')]
     public function reload()
     {
-        $this->categories = $this->list->categories()->get(['id', 'name']);
+        $this->loadCategories();
         $this->render();
     }
 

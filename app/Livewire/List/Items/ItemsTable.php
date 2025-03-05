@@ -28,6 +28,7 @@ class ItemsTable extends Component
     }
 
     #[On('created-item')]
+    #[On('deleted-category')]
     public function createdItem()
     {
         $this->newItems();

@@ -11,8 +11,8 @@
         <div>
             @if ($list->has_categories)
                 <livewire:list.category.categories :list="$list">
-                    @else
-                        no categories
+            @else
+                todo
             @endif
         </div>
     </div>
